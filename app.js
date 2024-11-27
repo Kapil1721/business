@@ -38,23 +38,34 @@ app.use(cookieParser());
 // Enable CORS
 app.use(
   cors({
-    origin: [
-      "https://business.thebusinessrating.com",
-      "https://thebusinessrating.com",
-      "https://thepreview.pro",
-      "https://uploadimage.thebusinessrating.com",
-      "http://localhost:5173",
-      "http://localhost:5174",
-    ],
+    origin: (origin, callback) => {
+      console.log('Request Origin:', origin); // Debugging
+      if (!origin || [
+        "https://business.thebusinessrating.com",
+        "https://thebusinessrating.com",
+        "https://thepreview.pro",
+        "https://uploadimage.thebusinessrating.com",
+        "http://localhost:5173",
+        "http://localhost:5174",
+      ].includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
 
 
 
+
 // Testing Root route
 app.get("/", (req, res) => {
-  res.send("API working fine");
+  console.log()
+  res.send({
+    message:req.headers
+  });
 });
 
 // Routes
