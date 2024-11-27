@@ -52,6 +52,10 @@ app.use(
 
 
 
+// Testing Root route
+app.get("/", (req, res) => {
+  res.send("API working fine");
+});
 
 // Routes
 app.use("/api/v1", userRouter);
