@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("mysql://thepwpolikno_newtbr:et0QoVu6=U;!@45.33.16.65/thepwpolikno_tbr?trustServerCertificate=true")
 }
 
 model User {
