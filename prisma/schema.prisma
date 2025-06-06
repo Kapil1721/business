@@ -64,6 +64,8 @@ model Blog {
   faq             Json
   table           String?
   date            DateTime @default(now())
+
+  @@map("blog")
 }
 
 model Review {
