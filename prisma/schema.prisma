@@ -32,6 +32,8 @@ model FooterSetting {
   id          String @id @default(uuid())
   content     String @db.LongText
   topsearches String @unique
+
+  @@map("footersetting")
 }
 
 model BlogCategory {
